@@ -13,6 +13,7 @@
     --blue1: #1A9FFF;
     --blue2: #75C5FF;
     --black: #000000;
+    --white: #FFFFFF;
 }
 
 /* font size */
@@ -77,4 +78,8 @@
 
 .black {
     color: var(--black);
+}
+
+.white{
+    color: var(--white);
 }
