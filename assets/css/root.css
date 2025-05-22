@@ -58,7 +58,7 @@
     line-height: 100%;
 }
 
-.lh-180{
+.lh-180 {
     line-height: 180%;
 }
 
@@ -80,6 +80,44 @@
     color: var(--black);
 }
 
-.white{
+.white {
     color: var(--white);
+}
+
+/* media query */
+
+@media (max-width:1025px) {
+    :root {
+        --fs-s: 13px;
+        --fs-m: 16px;
+        --fs-l: 20px;
+        --fs-xl: 32px;
+    }
+}
+
+@media (max-width:769px) {
+    :root {
+        --fs-s: 12px;
+        --fs-m: 12px;
+        --fs-l: 18px;
+        --fs-xl: 29px;
+    }
+}
+
+@media (max-width:426px) {
+    :root {
+        --fs-s: 10px;
+        --fs-m: 10px;
+        --fs-l: 15px;
+        --fs-xl: 26px;
+    }
+}
+
+@media (max-width:321px) {
+    :root {
+        --fs-s: 9px;
+        --fs-m: 9px;
+        --fs-l: 14px;
+        --fs-xl: 22px;
+    }
 }

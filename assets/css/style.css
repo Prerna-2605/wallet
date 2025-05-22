@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -68,6 +68,10 @@
     position: absolute;
 }
 
+.scale{
+    transition: scale 150ms linear;
+}
+
 /* logo */
 
 .logo {
@@ -102,7 +106,8 @@
     height: 43px;
     border-radius: 25.5px;
     border: 1px solid #00000033;
-    padding-left: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .search-icon {
@@ -160,14 +165,15 @@ input:checked+.slider:before {
 
 /* section 2 */
 
-.background-img{
+.background-img {
     background-image: url(/assets/images/png/background-img.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    max-height: 477px;
 }
 
-.card{
+.card {
     padding: 39px;
     background-color: #FFF;
     border-radius: 30px;
@@ -175,42 +181,44 @@ input:checked+.slider:before {
     box-shadow: 0px 38px 85px -19px #0000001A;
 }
 
-.gap-47{
+.gap-47 {
     gap: 47px;
 }
 
-.name{
+.name {
     margin-bottom: 10px;
 }
 
-.info{
+.info {
     margin-top: 34px;
     width: 357px;
 }
 
-.gap-7{
+.gap-7 {
     gap: 7px;
 }
 
-.line{
+.line {
     height: 49px;
     border: 1px solid #CCCCCC;
 }
 
-.profile{
+.profile {
     border-bottom: 1.5px solid #CCCCCC;
     padding-bottom: 52px;
     margin-bottom: 23px;
 }
 
-.edit{
+.edit {
     border: 0;
     background-color: #000000;
     color: #FFF;
     border-radius: 25.5px;
     padding: 11px 24px;
     white-space: nowrap;
-    height: 100%;
+    right: 38px;
+    top: 39px;
+    transition: all 200ms linear;
 }
 
 /* section 2 */
@@ -225,16 +233,286 @@ input:checked+.slider:before {
     padding-bottom: 54px;
 }
 
-.gap-17{
+.gap-17 {
     gap: 17px;
 }
 
-.gap-35{
+.gap-35 {
     gap: 35px;
 }
 
-.icons{
+.icons {
     padding-left: 26px;
     padding-right: 21px;
     bottom: 18px;
+}
+
+.edit:hover{
+    background-color: #FFF;
+    color: #000000;
+    box-shadow: 0px 4px 35px 0px #00000014;
+}
+
+.scale:hover{
+    scale: 1.025;
+}
+
+/* media query */
+
+@media (max-width:1025px) {
+    .logo-icon {
+        width: 50px;
+    }
+
+    .profile1 {
+        max-width: 54px;
+    }
+
+    .svg-size {
+        width: 18px;
+    }
+
+    .gap-20 {
+        gap: 20px;
+    }
+
+    .gap-10 {
+        gap: 10px;
+    }
+
+    .card {
+        transform: translateY(60%);
+    }
+
+    .parent {
+        margin-top: 380px;
+    }
+}
+
+@media (max-width:941px) {
+    .search {
+        display: none;
+    }
+
+    .card {
+        transform: translateY(50%);
+    }
+
+    .parent {
+        margin-top: 325px;
+    }
+}
+
+@media (max-width:865px) {
+    .svg-size {
+        width: 15px;
+    }
+
+    .profile {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 25px;
+    }
+
+    .parent {
+        grid-column-gap: 18px;
+        grid-row-gap: 22px;
+    }
+}
+
+@media (max-width:769px) {
+    .logo-icon {
+        width: 45px;
+    }
+
+    .info {
+        width: 290px;
+    }
+
+    .svg-size {
+        width: 11px;
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+}
+
+@media (max-width:689px) {
+    .edit {
+        right: 32px;
+        top: 33px;
+    }
+
+    .flex-md-column {
+        flex-direction: column;
+    }
+
+    .profile-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .card {
+        transform: translateY(40%);
+    }
+
+    .parent {
+        margin-top: 470px;
+    }
+
+    .profile1 {
+        max-width: 45px;
+    }
+
+    .switch {
+        width: 33px;
+        height: 18px;
+    }
+
+    .slider:before {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width:583px) {
+    .menu-list {
+        flex-direction: column;
+        background-color: #000000;
+        justify-content: center;
+        opacity: 95%;
+        width: 70%;
+        height: 90%;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: 1;
+        transition: left 300ms linear;
+    }
+
+    .flex-md-row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .menu-icon {
+        width: 40px;
+        height: 35px;
+        border: 0;
+        background-color: unset;
+        z-index: 2;
+    }
+
+    .nav-gap3 {
+        gap: 20px;
+    }
+
+    .menu-icon span {
+        width: 100%;
+        height: 4px;
+        background-color: #000000;
+        transition: background-color 150ms linear;
+    }
+
+    .menu-icon span:first-child {
+        width: 50%;
+        float: right;
+    }
+
+    .menu-icon span:last-child {
+        width: 50%;
+    }
+
+    .menu-list.show {
+        left: 0;
+    }
+
+    .activeNavBar .menu-icon span {
+        background-color: #FFFFFF;
+    }
+}
+
+@media (max-width:542px) {
+    .card {
+        transform: translateY(30%);
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        margin-top: 440px;
+    }
+}
+
+@media (max-width:457px) {
+    .parent {
+        margin-top: 475px;
+    }
+
+    .edit {
+        top: 18px;
+        right: 16px;
+    }
+}
+
+@media (max-width:426px) {
+    .switch {
+        display: none;
+    }
+
+    .menu-icon {
+        width: 35px;
+        height: 30px;
+    }
+
+    .parent {
+        margin-top: 420px;
+    }
+
+    .info {
+        width: 218px;
+    }
+
+    .edit{
+        padding: 8px 21px;
+    }
+}
+
+@media (max-width:321px) {
+    .logo-icon {
+        width: 40px;
+    }
+
+    .menu-icon {
+        width: 30px;
+        height: 25px;
+    }
+
+    .logo {
+        gap: 15px;
+    }
+
+    .profile1 {
+        max-width: 40px;
+    }
+
+    .big-profile {
+        width: 210px;
+    }
+}
+
+@media (min-width:941px) {
+    .search-icon {
+        display: none;
+    }
+}
+
+@media (min-width:583px) {
+    .menu-icon {
+        display: none;
+    }
 }
