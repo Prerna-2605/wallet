@@ -492,7 +492,8 @@ input:checked+.slider:before {
         transition: left 300ms linear;
     }
 
-    .menu-content {
+    .menu-content1,
+    .menu-content2 {
         color: #FFF;
     }
 
@@ -678,11 +679,15 @@ nav.dark-mode .menu-icon span {
     transition: color 100ms linear;
 }
 
-.menu-content.dark-mode {
+.menu-content1.dark-mode {
     color: #FFF;
 }
 
-.menu-content {
+.menu-content2.dark-mode {
+    color: #FFF;
+}
+
+.menu-content1, .menu-content2 {
     transition: color 100ms linear;
 }
 

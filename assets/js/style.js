@@ -18,7 +18,8 @@ document.querySelector('#modeToggle').addEventListener('change', function () {
     var body = document.querySelector('body');
     var nav = document.querySelector('nav');
     var logo = document.querySelector('.logo');
-    var menuContent = document.querySelector('.menu-content');
+    var menuContent1 = document.querySelector('.menu-content1');
+    var menuContent2 = document.querySelector('.menu-content2');
     var search = document.querySelector('.search');
     var searchIcon = document.querySelector('.search-icon');
     var card = document.querySelector('.card');
@@ -42,9 +43,15 @@ document.querySelector('#modeToggle').addEventListener('change', function () {
     }
 
     if (this.checked) {
-        menuContent.classList.add('dark-mode');
+        menuContent1.classList.add('dark-mode');
     } else {
-        menuContent.classList.remove('dark-mode');
+        menuContent1.classList.remove('dark-mode');
+    }
+
+    if (this.checked) {
+        menuContent2.classList.add('dark-mode');
+    } else {
+        menuContent2.classList.remove('dark-mode');
     }
     
     if (this.checked) {
