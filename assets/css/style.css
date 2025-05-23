@@ -68,8 +68,12 @@
     position: absolute;
 }
 
-.scale{
+.scale {
     transition: scale 150ms linear;
+}
+
+.align-start {
+    align-items: flex-start;
 }
 
 /* logo */
@@ -97,6 +101,15 @@
     gap: 63px;
 }
 
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #FFF;
+    box-shadow: 0px 4px 35px 0px #00000014;
+}
+
 .profile1 {
     max-width: 57px;
 }
@@ -110,19 +123,25 @@
     padding-right: 15px;
 }
 
+.search::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+}
+
 .search-icon {
     background-color: unset;
     border: 0;
 }
 
-.switch {
+.toggle-switch {
     position: relative;
     display: inline-block;
-    width: 40px;
-    height: 23px;
+    width: 60px;
+    height: 34px;
 }
 
-.switch input {
+.toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -136,31 +155,28 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    transition: 0.4s;
+    border-radius: 34px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 23px;
-    width: 23px;
-    background-color: #000000;
-    -webkit-transition: .4s;
-    transition: .4s;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #FFF;
 }
 
 input:checked+.slider:before {
-    transform: translateX(17px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 11.5px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
+    transform: translateX(26px);
 }
 
 /* section 2 */
@@ -247,14 +263,94 @@ input:checked+.slider:before {
     bottom: 18px;
 }
 
-.edit:hover{
+.edit:hover {
     background-color: #FFF;
     color: #000000;
     box-shadow: 0px 4px 35px 0px #00000014;
 }
 
-.scale:hover{
+.scale:hover {
     scale: 1.025;
+}
+
+.modal {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal.open {
+    display: block;
+}
+
+.modal-content {
+    padding: 32px;
+    background-color: #FFF;
+    max-width: 1296px;
+    height: 716px;
+    margin: auto;
+}
+
+.modal-img {
+    margin-right: 26px;
+    max-width: 687px;
+    max-height: 687px;
+}
+
+.comments {
+    margin-top: 17px;
+}
+
+.comment-area {
+    padding: 19px 30px 26px 27px;
+    background-color: #FAFAFA;
+    overflow: hidden;
+}
+
+.parent2 {
+    display: grid;
+    grid-row-gap: 21px;
+    margin-top: 17px;
+    height: 90%;
+    overflow-y: auto;
+}
+
+.comment-box {
+    padding: 12px 17px;
+    background-color: #FFF;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0px 5px 10px 0px #0000000D;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.gap-14 {
+    gap: 14px;
+}
+
+/* The Close Button */
+.close {
+    border: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    right: 1%;
+    top: 1.5%;
+}
+
+.close:hover,
+.close:focus {
+    cursor: pointer;
 }
 
 /* media query */
@@ -368,9 +464,13 @@ input:checked+.slider:before {
         max-width: 45px;
     }
 
-    .switch {
-        width: 33px;
-        height: 18px;
+    .toggle-switch {
+        width: 46px;
+        height: 25px;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(21.5px);
     }
 
     .slider:before {
@@ -386,12 +486,16 @@ input:checked+.slider:before {
         justify-content: center;
         opacity: 95%;
         width: 70%;
-        height: 90%;
+        height: 100vh;
         position: absolute;
         top: 0;
         left: -100%;
         z-index: 1;
         transition: left 300ms linear;
+    }
+
+    .menu-content {
+        color: #FFF;
     }
 
     .flex-md-row-reverse {
@@ -433,6 +537,20 @@ input:checked+.slider:before {
     .activeNavBar .menu-icon span {
         background-color: #FFFFFF;
     }
+
+    .toggle-switch {
+        width: 46px;
+        height: 24px;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(23.5px);
+    }
+
+    .slider:before {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 @media (max-width:542px) {
@@ -460,7 +578,8 @@ input:checked+.slider:before {
 }
 
 @media (max-width:426px) {
-    .switch {
+
+    .logo-icon {
         display: none;
     }
 
@@ -477,8 +596,22 @@ input:checked+.slider:before {
         width: 218px;
     }
 
-    .edit{
+    .edit {
         padding: 8px 21px;
+    }
+
+    .toggle-switch {
+        width: 42px;
+        height: 23px;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(19px);
+    }
+
+    .slider:before {
+        width: 17px;
+        height: 17px;
     }
 }
 
@@ -515,4 +648,101 @@ input:checked+.slider:before {
     .menu-icon {
         display: none;
     }
+}
+
+/* dark mode */
+
+body.dark-mode {
+    background-color: #000000ed;
+}
+
+body {
+    transition: background-color 100ms linear;
+}
+
+nav.dark-mode {
+    background-color: #000000;
+}
+
+nav {
+    transition: background-color 100ms linear;
+}
+
+nav.dark-mode .menu-icon span {
+    background-color: #FFF;
+}
+
+.logo.dark-mode {
+    color: #FFF !important;
+}
+
+.logo {
+    transition: color 100ms linear;
+}
+
+.menu-content.dark-mode {
+    color: #FFF;
+}
+
+.menu-content {
+    transition: color 100ms linear;
+}
+
+.search.dark-mode {
+    background-color: #3b3b3b;
+}
+
+.search {
+    transition: background-color 100ms linear;
+}
+
+.search.dark-mode::placeholder {
+    color: #FFF;
+}
+
+.search::placeholder {
+    transition: color 100ms linear;
+}
+
+.search-icon.dark-mode svg path {
+    fill: #FFF;
+}
+
+.search-icon svg path {
+    transition: fill 100ms linear;
+}
+
+.card.dark-mode {
+    background-color: #000000;
+    box-shadow: 0px 1px 30px -3px #f5f4f469;
+}
+
+.card {
+    transition: all 100ms linear;
+}
+
+.card.dark-mode .edit {
+    background-color: #3b3b3b;
+}
+
+.edit {
+    transition: background-color 100ms linear;
+}
+
+.card.dark-mode .handle {
+    color: #FFF !important;
+}
+
+.handle,
+.info,
+p {
+    transition: color 100ms linear;
+}
+
+.card.dark-mode .info {
+    color: #FFF !important;
+}
+
+.card.dark-mode p {
+    color: #FFF !important;
 }
