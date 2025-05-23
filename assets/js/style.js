@@ -23,6 +23,7 @@ document.querySelector('#modeToggle').addEventListener('change', function () {
     var search = document.querySelector('.search');
     var searchIcon = document.querySelector('.search-icon');
     var card = document.querySelector('.card');
+    var modal = document.querySelector('.modal');
 
     if (this.checked) {
         body.classList.add('dark-mode');
@@ -70,5 +71,11 @@ document.querySelector('#modeToggle').addEventListener('change', function () {
         card.classList.add('dark-mode');
     } else {
         card.classList.remove('dark-mode');
+    }
+
+    if (this.checked) {
+        modal.classList.add('dark-mode');
+    } else {
+        modal.classList.remove('dark-mode');
     }
 });
