@@ -2,6 +2,7 @@ function menuIcon() {
     document.querySelector('.menu-list').classList.toggle('show');
     document.querySelector('nav').classList.toggle('activeNavBar');
 }
+
 function modal() {
     document.querySelector('.modal').classList.toggle('open');
 }
@@ -12,6 +13,7 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
 document.querySelector('#modeToggle').addEventListener('change', function () {
     var body = document.querySelector('body');
     var nav = document.querySelector('nav');
